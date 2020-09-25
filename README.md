@@ -1,1 +1,1 @@
-# TOD-Calculator
+# Calculator
