@@ -4,24 +4,49 @@
 
 <body>
     <h1>Calculator</h1>
-    
+    <div class="instruction">
+        <span>
+            <h3>Instructions</h3>
+            <p>
+                This Calculator can do the basic operations: Sum, Subtract, Multiply and Divide.
+            </p>
+            <p>    
+                Other functions are clear values, backspace and negate current number.
+            </p>
+            <p> There are some control checks while using this calculator:
+                <ul>
+                    <li> The maximum number of digits (included the comma ".") is 15, 
+                    exceding it will round the number (if it has decimals) or show an error. </li>
+                    <li>  You can only type one comma ".". </li>
+                    <li>  You cannot negate the number "0". </li>
+                </ul>
+            </p>
+            <p> 
+                Keyboard shortcut support enabled (you can see the shortcut hovering on each button)
+            </p>
+        </span>
+    </div>
+
     <div class="container">
-        <div class="result-screen">
-            <div class="screen previous-number">
+        <div class="result-screen round-border-up">
+            <div class="screen unseletable previous-number">
             
             </div>
-            <div class="screen current-number">
-            
+            <div class="screen unselectable current-number">
+            0
             </div>
         </div>
         <div class="button-holder">            
-            <button class="double-button clear-button" onclick="clearCalculator(); updateView();">
+            <button class="single-button other-button" title="Clear screen (Press esc)" onclick="clearCalculator(); updateView();">
             AC
             </button>
-            <button class="single-button other-button" onclick="negate(); updateView();">
+            <button class="single-button other-button" title="Delete last digit (Press backspace)" onclick="backspace(); updateView();">
+            Del
+            </button>
+            <button class="single-button other-button" title="Negate the current number (press _)" onclick="negate(); updateView();">
             +/-
             </button>
-            <button class="single-button operator-button" onclick="changeOperator('/'); updateView();">
+            <button class="single-button operator-button" title="Divide (Press /)"onclick="changeOperator('/'); updateView();">
             /
             </button>
             <button class="single-button number-button" onclick="addNumber('7'); updateView();">
@@ -33,7 +58,7 @@
             <button class="single-button number-button" onclick="addNumber('9'); updateView();">
             9
             </button>
-            <button class="single-button operator-button" onclick="changeOperator('*'); updateView();">
+            <button class="single-button operator-button" title="Multiply (Press *)" onclick="changeOperator('x'); updateView();">
             X
             </button>
             <button class="single-button number-button" onclick="addNumber('4'); updateView();">
@@ -45,7 +70,7 @@
             <button class="single-button number-button" onclick="addNumber('6'); updateView();">
             6
             </button>
-            <button class="single-button operator-button" onclick="changeOperator('-'); updateView();">
+            <button class="single-button operator-button" title="Subtract (Press -)" onclick="changeOperator('-'); updateView();">
             -
             </button>
             <button class="single-button number-button" onclick="addNumber('1'); updateView();">
@@ -57,20 +82,25 @@
             <button class="single-button number-button" onclick="addNumber('3'); updateView();">
             3
             </button>
-            <button class="single-button operator-button" onclick="changeOperator('+'); updateView();">
+            <button class="single-button operator-button" title="Sum (Press +)" onclick="changeOperator('+'); updateView();">
             +
             </button>
-            <button class="double-button number-button" onclick="addNumber('0'); updateView();">
+            <button class="double-button number-button round-border-down-left" onclick="addNumber('0'); updateView();">
             0
             </button>
             <button class="single-button number-button" onclick="addNumber('.'); updateView();">
             .
             </button>
-            <button class="single-button operator-button" onclick="operate(); updateView();">
+            <button class="single-button operator-button round-border-down-right" title="Equal (Press enter)" onclick="operate(); updateView();">
             =
             </button>
+            <div class="clear-div">
+            </div>
         </div>
     </div>
+
+
+
 
 
     <script type="text/javascript" src="script.js"></script>
